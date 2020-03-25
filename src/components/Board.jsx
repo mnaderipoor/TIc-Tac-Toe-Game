@@ -1,0 +1,1 @@
+// the Board renders 9 squares. 

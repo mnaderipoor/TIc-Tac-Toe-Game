@@ -1,13 +1,12 @@
 //The Square component renders a single <button> 
 import React from 'react'
-export default class Square extends React.Component{
-    render(){
-        return(
-            <button 
-            onClick={this.props.onClick()} 
-            className="square">
-                {this.props.value}
-            </button>
-        )
-    }
+
+export default function Square(props){
+    return(
+        <button 
+          onClick={props.onClick} 
+          className="square">
+            {props.value}
+        </button>
+    )
 }

@@ -7,13 +7,15 @@ export default class Board extends React.Component{
         super(props);
         this.state = {
             squares: Array(9).fill(null),
+            //Each time a player moves, xIsNext (a boolean) will be flipped to determine which player goes next and the game’s state will be saved.
+            xIsNext: true,
         };
     }
     handleClick(i){
         // we call .slice() to create a copy of the squares array to modify instead of modifying the existing array
         const squares = this.state.squares.slice();    
-        squares[i] = 'X';    
-        this.setState({squares: squares});
+        squares[i] = this.state.xIsNext ? 'X' : 'O';    
+        this.setState({squares: squares, xIsNext: !this.state.xIsNext,});
         //There are generally two approaches to changing data. 
         //The first approach is to mutate the data by directly changing the data’s values. 
         //The second approach is to replace the data with a new copy which has the desired changes.
